@@ -14,9 +14,8 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'id', 'role_id', 'is_active', 'name', 'email', 'password',
-    ];
+    protected $guarded = [];
+
 
     /**
      * The attributes that should be hidden for arrays.
@@ -26,8 +25,16 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
     public function role()
     {
         return $this->belongsTo('App\Role');
     }
+
+    public function photo()
+    {
+        return $this->belongsTo('App\Photo');
+    }
+
+
 }

@@ -25,10 +25,11 @@ class UserRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => 'required',
+            'email' => 'required|unique:users',
             'is_active' => 'required',
             'role_id' => 'required',
-            'password' => 'required'
+            'password' => 'required',
+            'photo_id'=>'required'
             //
         ];
     }

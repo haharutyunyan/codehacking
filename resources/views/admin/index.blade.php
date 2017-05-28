@@ -1,4 +1,3 @@
-use Illuminate\Support\Facades\Route;
 @extends('layouts.admin')
 @section('content')
 
