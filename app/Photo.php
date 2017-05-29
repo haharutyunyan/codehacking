@@ -8,5 +8,11 @@ class Photo extends Model
 {
     //
     protected $guarded=[];
+    protected $directory = "/images/";
+
+    public function getFileAttribute($photo)
+    {
+        return $this->directory.$photo;
+    }
 
 }

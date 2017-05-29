@@ -15,7 +15,7 @@
         {!! Form::label('photo_id','Photo') !!}
         {!! Form::file('photo_id',null,['class'=>'form-control']) !!}
     </div>
-    <div class="form-group">
+    <div class="form-group">, $user->id
         {!! Form::label('role_id','Role') !!}
         {!! Form::select('role_id', ['' => 'Choose Options']+$roles,null, ['class'=>'form-control'])  !!}
     </div>
