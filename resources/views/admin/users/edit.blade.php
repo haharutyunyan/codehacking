@@ -1,6 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
+
+
     <h1>Edit user</h1>
     <div class="row">
         <div class="col-sm-3">
@@ -34,12 +36,20 @@
                 {!! Form::label('title','Password') !!}
                 {!! Form::password('password',['class'=>'form-control']) !!}
             </div>
-            <div class="form-group">
-                {!! Form::submit('Create a user', ['class'=>'btn btn-primary']) !!}
+
+
+
+                {!! Form::submit('Create a user', ['class'=>'btn btn-primary pull-left col md-6']) !!}
             </div>
             {!! Form::close() !!}
 
-        </div>
+
+        {!! Form::open (['method'=>'DELETE', 'action'=>['AdminUsersController@destroy',$users->id],'class'=>'pull-right']) !!}
+            <div class="form-group">
+                {!! Form::submit('Delete Post',['class'=>'btn btn-danger']) !!}
+            </div>
+
+        {!! Form::close() !!}
     </div>
     @include('includes.form_error')
 

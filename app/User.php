@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\App;
 
 class User extends Authenticatable
 {
@@ -35,6 +36,25 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Photo');
     }
+
+    public function isAdmin()
+    {
+//
+
+        if ($this->role->name == 'Administrator') {
+
+            return true;
+
+
+        }
+        return false;
+    }
+
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
+
 
 
 }

@@ -31,6 +31,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin: 0;">
         <div class="navbar-header">
+
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
@@ -45,10 +46,12 @@
 
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    {{ Auth::user()->name }}
                     <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                    <li><a href="#"> <i class="fa fa-user fa-fw"></i> {{ Auth::user()->name.' '. Auth::user()->role->name }}</a>
                     </li>
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
@@ -97,10 +100,10 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Posts<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="panels-wells.html">All Posts</a>
+                                <a href="{{route('posts.index')}}">All Posts</a>
                             </li>
                             <li>
-                                <a href="buttons.html">Create Post</a>
+                                <a href="{{route('posts.create')}}">Create Post</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
