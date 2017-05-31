@@ -6,12 +6,12 @@
     <h1>Edit user</h1>
     <div class="row">
         <div class="col-sm-3">
-            <img src="{{$users->photo ? $users->photo->file :' http://placehold.it/400x400'}}" class="img-responsive img-rounded" alt="">
+            <img src="{{$users->photo ? $users->photo->file :' http://placehold.it/400x400'}}"
+                 class="img-responsive img-rounded" alt="">
         </div>
 
         <div class="col-sm-9">
             {!! Form::model ($users,['method' =>'PATCH', 'action' => ['AdminUsersController@update', $users->id ], 'files'=>true]) !!}
-            {{--{{dd('aaa')}}--}}
             <div class="form-group">
                 {!! Form::label('name', 'Name') !!}
                 {!! Form::text('name', null, ['class'=>'form-control']) !!}
@@ -38,16 +38,15 @@
             </div>
 
 
-
-                {!! Form::submit('Create a user', ['class'=>'btn btn-primary pull-left col md-6']) !!}
-            </div>
-            {!! Form::close() !!}
+            {!! Form::submit('Update a user', ['class'=>'btn btn-primary pull-left col md-6']) !!}
+        </div>
+        {!! Form::close() !!}
 
 
         {!! Form::open (['method'=>'DELETE', 'action'=>['AdminUsersController@destroy',$users->id],'class'=>'pull-right']) !!}
-            <div class="form-group">
-                {!! Form::submit('Delete Post',['class'=>'btn btn-danger']) !!}
-            </div>
+        <div class="form-group">
+            {!! Form::submit('Delete Post',['class'=>'btn btn-danger']) !!}
+        </div>
 
         {!! Form::close() !!}
     </div>
