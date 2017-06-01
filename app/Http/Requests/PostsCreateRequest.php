@@ -25,12 +25,24 @@ class PostsCreateRequest extends FormRequest
     {
 
         return [
-            'title'         =>'required',
-//            'category_id' =>'required',
-            'body'          =>'required'
-
+            'title'       => 'required',
+//          'category_id' =>'required',
+            'body'        => 'required',
+            'photo_id'    => 'required'
         ];
 
 
+    }
+
+
+    public function messages()
+    {
+        return  [
+            'name.required'      => 'A title is required',
+            'is_active.required' => 'Active field is required',
+            'role_id.required'   => 'Role field is required',
+            'photo_id.required'  => 'Photo field is required',
+        ];
+//        return $messages;
     }
 }

@@ -13,13 +13,14 @@
     <!-- Bootstrap Core CSS -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet">
     <link href="{{asset('css/libs.css')}}" rel="stylesheet">
-
+    @yield('styles')
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
     <![endif]-->
 
 </head>
@@ -56,7 +57,15 @@
                     <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                     </li>
                     <li class="divider"></li>
-                    <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                    <a href="{{ route('logout') }}"
+                       onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();">
+                        Logout
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
                     </li>
                 </ul>
                 <!-- /.dropdown-user -->
@@ -116,7 +125,7 @@
                                 <a href="{{route('categories.index')}}">All Categories</a>
                             </li>
                             <li>
-                                <a href="{{route('categories.create')}}">Create Category</a>
+                                <a href="">Create Category</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -126,10 +135,10 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i> Media<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="panels-wells.html">All Media</a>
+                                <a href="{{route('media.index')}}">All Media</a>
                             </li>
                             <li>
-                                <a href="buttons.html">Create Media</a>
+                                <a href="{{route('media.create')}}">Create Media</a>
                             </li>
                         </ul>
                         <!-- /.nav-second-level -->
@@ -245,8 +254,9 @@
 <!-- /#wrapper -->
 
 <!-- jQuery -->
+
 <script src="{{asset('js/libs.js')}}"></script>
 
 </body>
-
+@yield('scripts')
 </html>
